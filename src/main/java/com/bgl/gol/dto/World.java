@@ -13,16 +13,16 @@ public class World {
         this.grid = new Cell[rows][columns];
         for(int i=0; i<rows; i++) {
             for(int j=0; j<columns; j++) {
-                this.grid[i][j] = Cell.builder()
-                                .rowNum(i)
-                                .colNum(j)
-                                .isAlive(false)
-                                .build();
+                setCellState(i, j, false);
             }
         }
     }
 
     public void setCellState(int row, int column, boolean isAlive) {
-        this.grid[row][column].setAlive(false);
+        this.grid[row][column] = Cell.builder()
+                .rowNum(row)
+                .colNum(column)
+                .isAlive(isAlive)
+                .build();
     }
 }
